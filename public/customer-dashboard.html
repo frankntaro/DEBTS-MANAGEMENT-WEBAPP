@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebtApp - My Debts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-700 border-r border-indigo-600 transform -translate-x-full md:translate-x-0 transition-transform duration-200">
+        <div class="flex flex-col h-full text-white">
+            <div class="p-5 border-b border-indigo-600">
+                <h1 class="text-xl font-semibold">DebtApp</h1>
+                <p class="text-xs text-indigo-300">Customer Portal</p>
+            </div>
+
+            <nav class="flex-1 px-3 py-5 space-y-1">
+                <a href="customer-dashboard.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md bg-indigo-800 sidebar-link" data-page="customer-dashboard">
+                    My Dashboard
+                </a>
+                <a href="profile.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-indigo-600/80 transition-colors sidebar-link" data-page="profile">
+                    My Profile
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-indigo-600 mt-auto">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 text-sm font-medium text-red-300 hover:bg-indigo-600/80 hover:text-white rounded-md transition-colors">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" class="md:hidden fixed top-4 left-4 z-40 bg-white border border-gray-200 p-2 rounded">
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+
+    <main class="md:ml-64 p-6 mt-16 md:mt-0">
+        <h2 class="text-2xl font-bold mb-6">Welcome Back!</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="p-6 bg-white rounded-xl shadow-sm border-l-4 border-red-500">
+                <h3 class="text-gray-500 text-sm font-medium uppercase">Total Unpaid Balance</h3>
+                <p id="total-balance" class="text-3xl font-bold text-red-600 mt-1">Calculating...</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-sm border-l-4 border-indigo-500">
+                <h3 class="text-gray-500 text-sm font-medium uppercase">Active Debt Records</h3>
+                <p id="record-count" class="text-3xl font-bold text-indigo-700 mt-1">0</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold text-gray-800">My Debt History</h3>
+            <button id="print-proof" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm transition-all shadow-md">
+                Print Statement
+            </button>
+        </div>
+
+        <ul id="debt-history" class="space-y-4">
+            </ul>
+    </main>
+    
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/customer.js"></script>
+</body>
+</html>

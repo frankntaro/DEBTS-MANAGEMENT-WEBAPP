@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebtApp - My Shops</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-700 border-r border-indigo-600 transform -translate-x-full md:translate-x-0 transition-transform duration-200">
+        <div class="flex flex-col h-full text-white">
+            <div class="p-5 border-b border-indigo-600">
+                <h1 class="text-xl font-semibold">DebtApp</h1>
+            </div>
+
+            <nav class="flex-1 px-3 py-5 space-y-1">
+                <a href="dashboard.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-indigo-600/80 transition-colors">
+                    Dashboard
+                </a>
+                <a href="shops.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md bg-indigo-800 transition-colors">
+                    Shops
+                </a>
+                <a href="debts.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-indigo-600/80 transition-colors">
+                    Debts
+                </a>
+                <a href="profile.html" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-md hover:bg-indigo-600/80 transition-colors">
+                    Profile
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-indigo-600 mt-auto">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 text-sm font-medium text-red-300 hover:bg-indigo-600/80 hover:text-white rounded-md transition-colors">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" class="md:hidden fixed top-4 left-4 z-40 bg-white border border-gray-200 p-2 rounded hover:bg-gray-50 shadow-sm">
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+
+    <main class="md:ml-64 p-6 mt-16 md:mt-0">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">My Shops</h2>
+            <button id="add-shop" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition shadow-md">
+                + Add New Shop
+            </button>
+        </div>
+
+        <ul id="shops-list" class="grid grid-cols-1 gap-4">
+            <div class="text-gray-500 animate-pulse">Loading shops...</div>
+        </ul>
+    </main>
+    
+    <div id="modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md transform transition-all">
+            <h3 id="modal-title" class="text-xl font-bold mb-6 text-gray-800">Add New Shop</h3>
+            
+            <form id="modal-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Shop Name</label>
+                    <input type="text" id="shop-name" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none" placeholder="e.g. Mbeya General Supplies" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                    <input type="text" id="shop-location" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none" placeholder="e.g. Soweto Market" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select id="shop-category" class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none" required>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Wholesale">Wholesale</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="pt-4 flex flex-col gap-2">
+                    <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-lg font-bold hover:bg-indigo-700 transition shadow-lg">
+                        Save Shop
+                    </button>
+                    <button type="button" id="close-modal" class="w-full text-gray-500 hover:text-red-600 py-2 text-sm font-medium transition">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="assets/js/shops.js"></script>
+</body>
+</html>
