@@ -129,4 +129,3 @@ The `public` folder contains HTML pages and JavaScript that call the above endpo
 Feel free to fork, improve the UX, add unit tests, or convert to a full SPA.
 
 ---
-*Created on March 1, 2026 by the project maintainer.*
